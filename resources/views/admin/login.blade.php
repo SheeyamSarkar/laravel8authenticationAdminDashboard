@@ -5,7 +5,7 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-        <title>Fonik - Responsive Bootstrap 4 Admin Dashboard</title>
+        <title>Admin Dashboard</title>
         <meta content="Admin Dashboard" name="description" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -19,9 +19,7 @@
 
     </head>
 
-
     <body>
-
         <!-- Loader -->
     <div id="preloader">
         <div id="status">
@@ -32,20 +30,17 @@
     <!-- Begin page -->
     <div class="accountbg"></div>
     <div class="wrapper-page">
-
         <div class="card">
             <div class="card-body">
-                {{-- <h3 class="text-center m-0">App Logo</h3> --}}
                 <h3 class="text-center m-0">
                     <a href="" class="logo logo-admin">
                         <img src="{{asset('backend/assets/images/anto-logo-black.png')}}" height="100"
                             alt="logo">
-                        {{-- <h5>Admin Dashboard</h5> --}}
                     </a>
                 </h3>
 
                 <div class="p-3">
-                    <h4 class="text-muted font-18 m-b-5 text-center">Welcome Back !</h4>
+                    <h4 class="text-muted font-18 m-b-5 text-center">Welcome!!</h4>
                     <p class="text-muted text-center">Sign in to continue.</p>
 
                     @if ($errors->any())
@@ -95,24 +90,13 @@
                         </div>
 
                         <div class="form-group row m-t-20">
-                            <div class="col-sm-6">
-                               {{--  <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customControlInline">
-                                    <label class="custom-control-label" for="customControlInline">Remember me</label>
-                                </div> --}}
+                            <div class="col-sm-8">
+                                <div class="custom-control custom-checkbox">
+                                    <a href="{{ route('forgot.password') }}" class="text-muted"><i class="mdi mdi-lock"></i>Forgot password?</a>
+                                </div>
                             </div>
-                            <div class="col-sm-6 text-right">
-                                <button class="btn btn-dark btn-block w-md waves-effect waves-light"
-                                    type="submit">Log
-                                    In</button>
-                            </div>
-                        </div>
-
-                        <div class="form-group m-t-10 mb-0 row">
-                            <div class="col-12 m-t-20">
-                                {{-- <a href="{{ route('forgot.password') }}" class="text-muted"><i class="mdi mdi-lock"></i>
-                                    Forgot
-                                    your password?</a> --}}
+                            <div class="col-sm-4 text-right">
+                                <button class="btn btn-success btn-block w-md waves-effect waves-light" type="submit">Log In</button>
                             </div>
                         </div>
                     </form>
@@ -137,7 +121,6 @@
         <script src="{{ asset('backend/assets/js/jquery.slimscroll.js') }}"></script>
         <script src="{{ asset('backend/assets/js/jquery.nicescroll.js') }}"></script>
         <script src="{{ asset('backend/assets/js/jquery.scrollTo.min.js') }}"></script>
-
         <!-- App js -->
         <script src="{{ asset('backend/assets/js/app.js') }}"></script>
 

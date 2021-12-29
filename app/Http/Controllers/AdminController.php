@@ -31,7 +31,6 @@ class AdminController extends Controller
             'name'        => 'required|max:100',
             'email'       => 'required|max:100|email|unique:users,email,' . $user->id,
             'image'       => 'dimensions:width=200,height=200'
-
         ]);
         $image = $request->image;
         if ($image) {
