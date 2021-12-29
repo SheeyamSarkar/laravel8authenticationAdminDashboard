@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use App\Mail\ResetLinkMail;
 
 class ForgotPasswordController extends Controller
 {
@@ -29,10 +30,17 @@ class ForgotPasswordController extends Controller
             'created_at' => Carbon::now(),
         ]);
 
-        Mail::send('admin.password_reset_mail', ['token' => $token], function ($message) use ($request) {
-            $message->to($request->email);
-            $message->subject('Reset Password');
-        });
+        $maildata = [
+            'title'   => 'Hello',
+            'message' => 'You are receiving this email because we are received a password reset request for your account',
+            'url'     => route('reset.password.get', [$token]),
+        ];
+        Mail::to($request->email)->send(new ResetLinkMail($maildata));
+
+        // Mail::send('admin.password_reset_mail', ['token' => $token], function ($message) use ($request) {
+        //     $message->to($request->email);
+        //     $message->subject('Reset Password');
+        // });
 
         return back()->with('success', 'We have e-mailed your password reset link!');
     }
