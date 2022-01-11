@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ForgotPasswordController;
 
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/profile_update', [AdminController::class, 'profile'])->name('user.profile');
     Route::post('/profile_update', [AdminController::class, 'profileUpdate'])->name('profile.update');
     Route::post('/password_update', [AdminController::class, 'updatePassword'])->name('password.update');
+
+    Route::get('/user',[UserController::class,'index'])->name('add_user');
 });
 
 Route::group(['prefix' => 'admin'], function () {

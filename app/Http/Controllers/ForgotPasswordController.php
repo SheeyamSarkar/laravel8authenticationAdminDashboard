@@ -50,6 +50,7 @@ class ForgotPasswordController extends Controller
     }
 
     public function submitResetPasswordForm(Request $request) {
+        // dd($request->all());
         $request->validate([
             'email'                 => 'required|email|exists:users',
             'password'              => 'required|string|min:8|confirmed',
@@ -62,6 +63,8 @@ class ForgotPasswordController extends Controller
                 'token' => $request->token,
             ])
             ->first();
+
+            dd($updatePassword);
 
         if (!$updatePassword) {
             return back()->withInput()->with('error', 'Invalid token!');
